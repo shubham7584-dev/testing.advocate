@@ -1,0 +1,159 @@
+/* Simple Services Page - Adv. Nikhil Shakarwal */
+
+.services-hero {
+    padding: 95px 0 80px;
+    text-align: center;
+    background: #f7f4ef;
+}
+
+.services-hero h1 {
+    margin: 10px 0 12px;
+    font-family: 'Cinzel', serif;
+    font-size: clamp(36px, 5vw, 58px);
+    line-height: 1.15;
+}
+
+.services-hero p {
+    max-width: 650px;
+    margin: 0 auto;
+    color: #666;
+    font-size: 16px;
+}
+
+.section-tag {
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.services-section {
+    padding: 85px 0;
+}
+
+.section-heading {
+    max-width: 720px;
+    margin: 0 auto 45px;
+    text-align: center;
+}
+
+.section-heading h2 {
+    margin: 10px 0 14px;
+    font-family: 'Cinzel', serif;
+    font-size: 36px;
+}
+
+.section-heading p {
+    margin: 0;
+    color: #666;
+    line-height: 1.8;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+}
+
+.service-card {
+    padding: 30px 25px;
+    background: #fff;
+    border: 1px solid #e8e4de;
+    border-radius: 8px;
+    box-shadow: 0 8px 25px rgba(0,0,0,.04);
+    transition: transform .25s ease, box-shadow .25s ease;
+}
+
+.service-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 14px 30px rgba(0,0,0,.08);
+}
+
+.service-icon {
+    width: 52px;
+    height: 52px;
+    display: grid;
+    place-items: center;
+    margin-bottom: 20px;
+    border-radius: 50%;
+    background: #f3eee7;
+    font-size: 20px;
+}
+
+.service-card h3 {
+    margin: 0 0 12px;
+    font-family: 'Cinzel', serif;
+    font-size: 20px;
+}
+
+.service-card p {
+    min-height: 72px;
+    margin: 0 0 18px;
+    color: #666;
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+.service-card a {
+    font-size: 13px;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.service-card a i {
+    margin-left: 5px;
+    font-size: 11px;
+}
+
+.services-contact {
+    padding: 55px 0;
+    background: #f7f4ef;
+}
+
+.services-contact .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+}
+
+.services-contact h2 {
+    margin: 8px 0 8px;
+    font-family: 'Cinzel', serif;
+    font-size: 30px;
+}
+
+.services-contact p {
+    margin: 0;
+    color: #666;
+}
+
+@media (max-width: 1100px) {
+    .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 700px) {
+    .services-hero {
+        padding: 70px 0 60px;
+    }
+
+    .services-section {
+        padding: 65px 0;
+    }
+
+    .services-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .service-card p {
+        min-height: auto;
+    }
+
+    .services-contact .container {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}

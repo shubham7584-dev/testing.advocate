@@ -1,0 +1,186 @@
+/* =========================================================
+   FULL-SURFACE BUTTON SWIPE EFFECT
+   No underline / double-line / border sweep.
+   The hover animation moves across the complete button surface.
+   ========================================================= */
+
+:root {
+    --button-swipe: rgba(255,255,255,.24);
+    --nav-swipe: rgba(200,164,93,.14);
+}
+
+/* Completely remove the old double-line / underline navigation effect. */
+.nav-links > li::after,
+header.sticky .nav-links > li::after,
+.nav-links > li > a::before,
+.nav-links > li > a:hover::before,
+.nav-links > li > a.active::before,
+.nav-links > li > a::after,
+.nav-links > li > a:hover::after,
+.nav-links > li > a.active::after {
+    content: none !important;
+    display: none !important;
+}
+
+/* All real/action buttons. */
+.btn,
+.hero-btn,
+.contact-btn,
+.read-btn,
+.submit-btn,
+.center-btn,
+.primary-btn,
+.office-location-btn,
+.whatsapp-btn,
+.practice-cta a,
+.blog-cta .btn,
+button:not(.slider-btn):not(.scroll-top),
+input[type="submit"],
+input[type="button"] {
+    position: relative !important;
+    isolation: isolate;
+    overflow: hidden !important;
+    transition: transform .22s ease, box-shadow .22s ease, background-color .22s ease, color .22s ease !important;
+}
+
+/*
+   This is a FULL-SURFACE swipe, not a line/border animation.
+   The overlay covers the entire button and sweeps from left to right.
+*/
+.btn::after,
+.hero-btn::after,
+.contact-btn::after,
+.read-btn::after,
+.submit-btn::after,
+.center-btn::after,
+.primary-btn::after,
+.office-location-btn::after,
+.whatsapp-btn::after,
+.practice-cta a::after,
+.blog-cta .btn::after,
+button:not(.slider-btn):not(.scroll-top)::after,
+input[type="submit"]::after,
+input[type="button"]::after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: inherit;
+    background: var(--button-swipe);
+    transform: translateX(-105%);
+    opacity: 0;
+    pointer-events: none;
+}
+
+.btn:hover::after,
+.hero-btn:hover::after,
+.contact-btn:hover::after,
+.read-btn:hover::after,
+.submit-btn:hover::after,
+.center-btn:hover::after,
+.primary-btn:hover::after,
+.office-location-btn:hover::after,
+.whatsapp-btn:hover::after,
+.practice-cta a:hover::after,
+.blog-cta .btn:hover::after,
+button:not(.slider-btn):not(.scroll-top):hover::after,
+input[type="submit"]:hover::after,
+input[type="button"]:hover::after {
+    opacity: 1;
+    animation: fullButtonSwipe 1.05s ease-in-out infinite;
+}
+
+@keyframes fullButtonSwipe {
+    0% {
+        transform: translateX(-105%);
+    }
+    48% {
+        transform: translateX(0%);
+    }
+    52% {
+        transform: translateX(0%);
+    }
+    100% {
+        transform: translateX(105%);
+    }
+}
+
+.btn:hover,
+.hero-btn:hover,
+.contact-btn:hover,
+.read-btn:hover,
+.submit-btn:hover,
+.center-btn:hover,
+.primary-btn:hover,
+.office-location-btn:hover,
+.whatsapp-btn:hover,
+.practice-cta a:hover,
+.blog-cta .btn:hover,
+button:not(.slider-btn):not(.scroll-top):hover,
+input[type="submit"]:hover,
+input[type="button"]:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 24px rgba(200,164,93,.25);
+}
+
+/* Main navigation: same whole-surface swipe, but subtle so text stays readable. */
+.nav-links > li > a {
+    position: relative !important;
+    isolation: isolate;
+    overflow: hidden !important;
+    transition: color .22s ease, background-color .22s ease !important;
+}
+
+.nav-links > li > a::after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+    background: var(--nav-swipe);
+    transform: translateX(-105%);
+    opacity: 0;
+    pointer-events: none;
+}
+
+.nav-links > li > a:hover::after {
+    opacity: 1;
+    animation: fullNavSwipe 1.05s ease-in-out infinite;
+}
+
+@keyframes fullNavSwipe {
+    0% { transform: translateX(-105%); }
+    48% { transform: translateX(0%); }
+    52% { transform: translateX(0%); }
+    100% { transform: translateX(105%); }
+}
+
+/* Dropdown links keep their normal clean hover; they are list items, not CTA buttons. */
+.dropdown-menu li a::after {
+    display: none !important;
+    content: none !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .btn::after,
+    .hero-btn::after,
+    .contact-btn::after,
+    .read-btn::after,
+    .submit-btn::after,
+    .center-btn::after,
+    .primary-btn::after,
+    .office-location-btn::after,
+    .whatsapp-btn::after,
+    .practice-cta a::after,
+    .blog-cta .btn::after,
+    button::after,
+    input[type="submit"]::after,
+    input[type="button"]::after,
+    .nav-links > li > a::after {
+        animation: none !important;
+    }
+}

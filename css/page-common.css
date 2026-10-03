@@ -1,0 +1,227 @@
+/* =========================================================
+   COMMON INNER-PAGE HEADER / FOOTER ALIGNMENT
+   Used by About, Services, Practice, Blog and Contact pages.
+========================================================= */
+
+body.inner-page {
+    overflow-x: hidden;
+}
+
+body.inner-page > .top-bar {
+    position: relative;
+    z-index: 10000;
+}
+
+body.inner-page > header,
+body.inner-page > .site-header,
+body.inner-page > .header {
+    position: relative;
+    top: auto;
+    left: auto;
+    right: auto;
+    width: 100%;
+    background: var(--primary);
+    z-index: 9999;
+}
+
+body.inner-page .navbar,
+body.inner-page .nav-inner,
+body.inner-page .nav-wrap {
+    min-height: 90px;
+}
+
+body.inner-page main {
+    position: relative;
+    z-index: 1;
+}
+
+/* Prevent page-specific old header styles from changing alignment */
+body.inner-page .logo {
+    flex-shrink: 0;
+}
+
+body.inner-page .nav-links,
+body.inner-page .main-nav {
+    flex-wrap: nowrap;
+}
+
+/* Consistent footer */
+body.inner-page footer.site-footer {
+    background: var(--primary);
+    color: #fff;
+    padding-top: 75px;
+}
+
+body.inner-page footer.site-footer .footer-grid,
+body.inner-page footer.site-footer .footer-inner {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 50px;
+}
+
+body.inner-page footer.site-footer h3,
+body.inner-page footer.site-footer h4 {
+    color: #fff;
+}
+
+body.inner-page footer.site-footer p {
+    color: #ccc;
+    line-height: 1.8;
+}
+
+body.inner-page footer.site-footer .footer-bottom,
+body.inner-page footer.site-footer .copyright {
+    margin-top: 55px;
+    padding: 20px;
+    text-align: center;
+    border-top: 1px solid rgba(255,255,255,.1);
+    color: #aaa;
+    font-size: 13px;
+}
+
+@media (max-width: 991px) {
+    body.inner-page .nav-links,
+    body.inner-page .main-nav {
+        flex-wrap: wrap;
+    }
+}
+
+
+/* Reference-style inner-page header */
+body.inner-page > header { background:#fff !important; box-shadow:0 3px 18px rgba(0,0,0,.08); }
+body.inner-page .logo h2 { color:var(--primary); }
+body.inner-page .logo p { color:#777; }
+body.inner-page .nav-links a { color:#222; }
+body.inner-page .nav-links a:hover, body.inner-page .nav-links a.active { color:var(--gold-dark); }
+body.inner-page .nav-links li::after { background:var(--gold); }
+body.inner-page .menu-toggle { color:var(--primary); }
+body.inner-page .dropdown-menu { top:calc(100% + 1px); }
+body.inner-page header.sticky { background:#fff !important; }
+@media (max-width:991px){
+    body.inner-page .menu-toggle { color:#fff; }
+    body.inner-page .nav-links { background:var(--primary); }
+    body.inner-page .nav-links a { color:#fff; }
+}
+
+/* =========================================================
+   FINAL HEADER CONSISTENCY / STICKY BEHAVIOUR
+   Same navigation spacing and sticky behavior on every page.
+========================================================= */
+@media (min-width: 992px) {
+    body.inner-page > header .navbar {
+        gap: 24px;
+    }
+
+    body.inner-page > header .navbar > nav {
+        margin-left: auto !important;
+    }
+
+    body.inner-page > header .navbar > .contact-btn {
+        margin-left: 28px !important;
+        flex-shrink: 0;
+    }
+}
+
+/* Inner pages must use the same fixed sticky header behavior as Home. */
+body.inner-page > header.sticky {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    width: 100% !important;
+    z-index: 9999 !important;
+}
+
+/* Prevent a fixed header from covering content when it becomes sticky. */
+body.inner-page.header-has-sticky-space {
+    padding-top: 90px;
+}
+
+/* Click-controlled dropdown state: mouse hover remains supported on desktop,
+   while taps/clicks explicitly open the same scrollable list. */
+.nav-links .has-dropdown.is-open > .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+@media (max-width: 991px) {
+    body.inner-page > header .navbar {
+        gap: 10px !important;
+    }
+
+    body.inner-page > header .navbar > nav {
+        margin-left: 0 !important;
+    }
+
+    body.inner-page > header .navbar > .contact-btn {
+        margin-left: 0 !important;
+    }
+}
+
+/* Sticky state: match the site's green top/header treatment on every page. */
+body.inner-page > header.sticky,
+header.sticky {
+    background: var(--primary) !important;
+    color: #fff;
+}
+
+body.inner-page > header.sticky .logo h2,
+header.sticky .logo h2 {
+    color: #fff !important;
+}
+
+body.inner-page > header.sticky .logo p,
+header.sticky .logo p {
+    color: rgba(255,255,255,.78) !important;
+}
+
+body.inner-page > header.sticky .nav-links > li > a,
+header.sticky .nav-links > li > a {
+    color: #fff !important;
+}
+
+body.inner-page > header.sticky .nav-links > li > a:hover,
+body.inner-page > header.sticky .nav-links > li > a.active,
+header.sticky .nav-links > li > a:hover,
+header.sticky .nav-links > li > a.active {
+    color: var(--gold) !important;
+}
+
+body.inner-page > header.sticky .nav-links > li::after,
+header.sticky .nav-links > li::after {
+    background: var(--gold) !important;
+}
+
+body.inner-page > header.sticky .contact-btn,
+header.sticky .contact-btn {
+    background: var(--gold) !important;
+    color: #fff !important;
+}
+
+body.inner-page > header.sticky .menu-toggle,
+header.sticky .menu-toggle {
+    color: #fff !important;
+}
+
+
+/* Keep the reference-style footer on all inner pages. */
+body.inner-page footer.site-footer { padding-top: 55px; }
+body.inner-page footer.site-footer .footer-grid {
+    grid-template-columns: 1.65fr 1fr 1fr 1.35fr;
+    gap: 42px;
+}
+@media (max-width:1100px){
+    body.inner-page footer.site-footer .footer-grid { grid-template-columns:1.4fr 1fr 1fr; }
+    body.inner-page footer.site-footer .footer-contact { grid-column:1/-1; }
+}
+@media (max-width:760px){
+    body.inner-page footer.site-footer .footer-grid { grid-template-columns:1fr 1fr; gap:32px 25px; }
+    body.inner-page footer.site-footer .footer-about,
+    body.inner-page footer.site-footer .footer-contact { grid-column:1/-1; }
+}
+@media (max-width:520px){
+    body.inner-page footer.site-footer .footer-grid { grid-template-columns:1fr; }
+    body.inner-page footer.site-footer .footer-about,
+    body.inner-page footer.site-footer .footer-contact { grid-column:auto; }
+}

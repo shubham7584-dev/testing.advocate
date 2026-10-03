@@ -1,0 +1,11 @@
+
+/* Office Google Maps layout */
+.map-wrap.map-office-layout{height:430px;display:grid;grid-template-columns:320px minmax(0,1fr);overflow:hidden;border-radius:12px;box-shadow:0 10px 30px rgba(0,0,0,.08);margin-top:28px;background:#fff}
+.map-office-card{background:#fff;padding:28px 24px;display:flex;flex-direction:column;justify-content:center;border-right:1px solid #e5e7eb;box-sizing:border-box}
+.map-office-card .map-office-icon{width:48px;height:48px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:#f3eee5;color:#8b6b31;font-size:20px;margin-bottom:18px;flex:none}
+.map-office-card h3{margin:0 0 10px;font-size:20px;line-height:1.3;color:#1f2937}
+.map-office-card p{margin:0 0 18px;color:#68717d;line-height:1.6;font-size:14px}
+.map-office-card a{display:inline-flex;align-items:center;gap:8px;color:#8b6b31;font-weight:700;text-decoration:none;font-size:14px}
+.map-office-frame{min-width:0;height:100%}
+.map-office-frame iframe{width:100%;height:100%;border:0;display:block}
+@media(max-width:700px){.map-wrap.map-office-layout{height:auto;display:flex;flex-direction:column}.map-office-card{border-right:0;border-bottom:1px solid #e5e7eb;padding:22px}.map-office-frame{height:330px}}

@@ -1,0 +1,770 @@
+/* =========================================================
+   FINAL RESPONSIVE SAFETY LAYER
+   Applies only layout/overflow behavior. No content or visual redesign.
+========================================================= */
+
+html {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+body {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+img, video, iframe {
+    max-width: 100%;
+}
+
+img {
+    height: auto;
+}
+
+.container {
+    width: min(90%, 1300px);
+    max-width: 1300px;
+}
+
+@media (min-width: 1200px) {
+    .navbar > nav { margin-left: auto !important; }
+    .navbar > .contact-btn { margin-left: 28px !important; flex-shrink: 0; }
+}
+
+/* =========================================================
+   DESKTOP / LAPTOP: 992px–1399px
+========================================================= */
+@media (min-width: 992px) and (max-width: 1399px) {
+    .navbar {
+        gap: 12px !important;
+    }
+
+    .logo {
+        flex: 0 1 225px !important;
+        max-width: 225px;
+    }
+
+    .nav-links {
+        gap: 10px !important;
+        margin-left: 16px !important;
+    }
+
+    .navbar > nav {
+        transform: none !important;
+        min-width: 0;
+    }
+
+    .navbar > nav .nav-links > li > a {
+        font-size: 15px !important;
+    }
+
+    .contact-btn {
+        margin-left: 4px !important;
+        padding: 11px 17px;
+        font-size: 12px;
+    }
+}
+
+/* =========================================================
+   TABLET + MOBILE NAVIGATION: <=991px
+========================================================= */
+@media (max-width: 991px) {
+    .top-bar .container,
+    .navbar,
+    .footer-grid,
+    .services-contact .container,
+    .service-detail-cta .container {
+        max-width: 100%;
+    }
+
+    .navbar {
+        width: 92%;
+        min-height: 78px !important;
+        gap: 10px !important;
+        justify-content: space-between !important;
+    }
+
+    .logo {
+        flex: 1 1 auto !important;
+        width: auto !important;
+        max-width: calc(100% - 58px) !important;
+        min-width: 0 !important;
+    }
+
+    .logo h2 {
+        white-space: normal !important;
+        line-height: 1.2;
+    }
+
+    .logo p {
+        white-space: normal;
+        line-height: 1.35;
+    }
+
+    .navbar > nav {
+        position: static !important;
+        transform: none !important;
+        margin: 0 !important;
+        min-width: 0;
+    }
+
+    .menu-toggle {
+        display: grid !important;
+        place-items: center;
+        flex: 0 0 44px;
+        width: 44px;
+        height: 44px;
+        line-height: 1;
+        z-index: 10002;
+    }
+
+    .contact-btn {
+        display: none !important;
+    }
+
+    .nav-links {
+        position: fixed !important;
+        top: 0 !important;
+        right: -100% !important;
+        left: auto !important;
+        width: min(360px, 88vw) !important;
+        max-width: 88vw !important;
+        height: 100dvh !important;
+        max-height: 100dvh !important;
+        padding: 88px 16px 28px !important;
+        margin: 0 !important;
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: flex-start !important;
+        align-items: stretch !important;
+        gap: 5px !important;
+        overflow-x: hidden !important;
+        overflow-y: auto !important;
+        overscroll-behavior: contain;
+        -webkit-overflow-scrolling: touch;
+        z-index: 10000 !important;
+    }
+
+    .nav-links.active {
+        right: 0 !important;
+    }
+
+    .nav-links > li {
+        width: 100% !important;
+        flex: 0 0 auto;
+        text-align: center;
+    }
+
+    .nav-links > li > a {
+        display: flex !important;
+        width: 100%;
+        min-height: 44px;
+        align-items: center;
+        justify-content: center;
+        white-space: normal !important;
+        text-align: center;
+        font-size: 17px !important;
+        line-height: 1.35;
+        padding: 10px 8px !important;
+    }
+
+    /* Mobile dropdowns: contained, scrollable, and never wider than the menu. */
+    .nav-links .has-dropdown {
+        width: 100% !important;
+    }
+
+    .nav-links .has-dropdown > a {
+        justify-content: center !important;
+    }
+
+    .nav-links .dropdown-menu {
+        position: static !important;
+        width: 100% !important;
+        min-width: 0 !important;
+        max-width: 100% !important;
+        max-height: min(230px, 32dvh) !important;
+        margin: 2px 0 6px !important;
+        padding: 4px 0 !important;
+        display: none;
+        opacity: 1 !important;
+        visibility: visible !important;
+        transform: none !important;
+        overflow-x: hidden !important;
+        overflow-y: auto !important;
+        -webkit-overflow-scrolling: touch;
+        overscroll-behavior: contain;
+    }
+
+    .nav-links .has-dropdown.is-open > .dropdown-menu {
+        display: block !important;
+    }
+
+    .nav-links .has-dropdown:hover > .dropdown-menu,
+    .nav-links .has-dropdown:focus-within > .dropdown-menu {
+        display: none;
+    }
+
+    .nav-links .has-dropdown.is-open:hover > .dropdown-menu,
+    .nav-links .has-dropdown.is-open:focus-within > .dropdown-menu {
+        display: block !important;
+    }
+
+    .nav-links .dropdown-menu li,
+    .nav-links .dropdown-menu li a {
+        width: 100% !important;
+        max-width: 100%;
+    }
+
+    .nav-links .dropdown-menu li a {
+        min-height: 40px;
+        padding: 8px 10px !important;
+        font-size: 14px !important;
+        line-height: 1.35;
+        white-space: normal !important;
+        text-align: center;
+    }
+
+    /* Two-column content collapses before it can become cramped. */
+    .contact-grid,
+    .office-grid,
+    .service-layout,
+    .service-detail-grid {
+        grid-template-columns: 1fr !important;
+    }
+
+    .contact-card {
+        position: static !important;
+    }
+
+    .services-grid,
+    .practice-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .process-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .service-detail-image img {
+        height: auto;
+        max-height: 480px;
+    }
+}
+
+/* =========================================================
+   LARGE PHONE / SMALL TABLET: <=768px
+========================================================= */
+@media (max-width: 768px) {
+    .container {
+        width: 92%;
+    }
+
+    .hero {
+        height: auto;
+        min-height: 85svh;
+    }
+
+    .hero-content {
+        width: min(92%, 700px);
+        padding: 90px 0 70px;
+    }
+
+    .hero-content h1 {
+        font-size: clamp(30px, 7vw, 40px) !important;
+        line-height: 1.25;
+    }
+
+    .hero-content p {
+        width: 100% !important;
+        max-width: 650px;
+    }
+
+    .hero-btns {
+        width: 100%;
+        flex-wrap: wrap;
+    }
+
+    .hero-btn {
+        max-width: 100%;
+    }
+
+    .section-heading h2,
+    .about-content h2,
+    .appointment-left h2 {
+        font-size: clamp(28px, 6vw, 34px) !important;
+        line-height: 1.25;
+    }
+
+    .expertise-grid,
+    .work-grid,
+    .testimonial-slider,
+    .blog-grid,
+    .services-grid,
+    .practice-grid,
+    .process-grid {
+        grid-template-columns: 1fr !important;
+    }
+
+    .counter-section .container {
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    }
+
+    .form-row,
+    .enquiry-grid {
+        grid-template-columns: 1fr !important;
+    }
+
+    .contact-form-card,
+    .contact-info-card {
+        padding: 28px !important;
+    }
+
+    .map-wrap {
+        height: 320px !important;
+    }
+
+    .map-box iframe {
+        width: 100% !important;
+        height: 320px !important;
+    }
+
+    .service-main,
+    .services-section,
+    .about,
+    .expertise,
+    .work,
+    .testimonials,
+    .appointment,
+    .blogs,
+    .office-map {
+        padding-top: 65px;
+        padding-bottom: 65px;
+    }
+
+    .service-detail-section {
+        padding: 65px 0;
+    }
+
+    .service-detail-hero {
+        padding: 80px 20px 60px !important;
+    }
+
+    .service-detail-content h2 {
+        font-size: clamp(28px, 7vw, 34px) !important;
+    }
+
+    .service-detail-image img {
+        height: 330px !important;
+    }
+
+    .practice-hero h1,
+    .page-hero h1,
+    .contact-hero h1,
+    .services-hero h1 {
+        font-size: clamp(31px, 8vw, 42px) !important;
+        line-height: 1.2;
+    }
+
+    .practice-cta {
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+
+    .site-footer .container {
+        display: block !important;
+    }
+}
+
+/* =========================================================
+   SMALL PHONES: <=576px
+========================================================= */
+@media (max-width: 576px) {
+    .container {
+        width: calc(100% - 30px);
+    }
+
+    .navbar {
+        width: calc(100% - 30px) !important;
+    }
+
+    .logo {
+        max-width: calc(100% - 52px) !important;
+    }
+
+    .logo h2 {
+        font-size: clamp(13px, 4vw, 17px) !important;
+    }
+
+    .logo p {
+        font-size: 8px !important;
+        letter-spacing: .35px;
+    }
+
+    .menu-toggle {
+        flex-basis: 42px;
+        width: 42px;
+        height: 42px;
+        font-size: 22px;
+    }
+
+    .nav-links {
+        width: 100vw !important;
+        max-width: 100vw !important;
+        padding-left: 14px !important;
+        padding-right: 14px !important;
+    }
+
+    .nav-links .dropdown-menu {
+        max-height: 34dvh !important;
+    }
+
+    .hero-content {
+        padding-top: 75px;
+        padding-bottom: 60px;
+    }
+
+    .hero-content h1 {
+        font-size: clamp(27px, 8.5vw, 34px) !important;
+    }
+
+    .hero-content p {
+        font-size: 14px !important;
+        line-height: 1.75 !important;
+    }
+
+    .hero-btn {
+        width: min(230px, 100%);
+    }
+
+    .section-heading {
+        margin-bottom: 38px;
+    }
+
+    .section-heading h2,
+    .about-content h2,
+    .appointment-left h2 {
+        font-size: clamp(25px, 7.5vw, 30px) !important;
+    }
+
+    .section-heading p,
+    .about-content p,
+    .appointment-left > p {
+        font-size: 14px;
+        line-height: 1.8;
+    }
+
+    .work-card,
+    .testimonial,
+    .blog-content,
+    .expertise-content {
+        padding: 22px !important;
+    }
+
+    .appointment-container {
+        padding: 22px 16px !important;
+    }
+
+    .appointment form input,
+    .appointment form select,
+    .appointment form textarea,
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+        width: 100% !important;
+        max-width: 100%;
+        min-width: 0;
+    }
+
+    .map-wrap {
+        height: 290px !important;
+    }
+
+    .map-box iframe {
+        height: 290px !important;
+    }
+
+    .service-content h2 {
+        font-size: 27px !important;
+    }
+
+    .service-content p,
+    .service-list li,
+    .service-detail-content > p,
+    .service-detail-content li {
+        font-size: 15px;
+        line-height: 1.8;
+    }
+
+    .service-feature-image {
+        max-height: 330px;
+        margin-bottom: 28px;
+    }
+
+    .service-cta,
+    .practice-cta {
+        padding: 24px !important;
+    }
+
+    .footer-grid {
+        gap: 30px !important;
+    }
+
+    .whatsapp,
+    .whatsapp-btn {
+        max-width: calc(100vw - 30px);
+    }
+}
+
+/* =========================================================
+   EXTRA-SMALL PHONES: <=360px
+========================================================= */
+@media (max-width: 360px) {
+    .container {
+        width: calc(100% - 24px);
+    }
+
+    .navbar {
+        width: calc(100% - 24px) !important;
+    }
+
+    .logo h2 {
+        font-size: 12px !important;
+    }
+
+    .logo p {
+        font-size: 7px !important;
+    }
+
+    .hero-content h1 {
+        font-size: 26px !important;
+    }
+
+    .hero-content p {
+        font-size: 13px !important;
+    }
+
+    .counter-section .container {
+        gap: 8px !important;
+    }
+
+    .counter-box {
+        padding: 20px 6px !important;
+    }
+
+    .counter-box h2 {
+        font-size: 32px !important;
+    }
+
+    .contact-form-card,
+    .contact-info-card {
+        padding: 20px !important;
+    }
+}
+
+/* =========================================================
+   VERY LARGE SCREENS: >=1400px
+   Keep content centered rather than allowing text to stretch.
+========================================================= */
+@media (min-width: 1400px) {
+    .navbar > nav {
+        transform: none !important;
+    }
+
+    .nav-links {
+        gap: 24px !important;
+    }
+
+    .hero-content,
+    .section-heading,
+    .about-container,
+    .appointment-container {
+        max-width: 1300px;
+    }
+}
+
+/* Dynamic viewport fallback for older mobile browsers. */
+@supports not (height: 100dvh) {
+    @media (max-width: 991px) {
+        .nav-links { height: 100vh !important; max-height: 100vh !important; }
+    }
+}
+/* User-requested desktop navbar alignment: keep the navigation and appointment button further right. */
+@media (min-width: 1200px) {
+    .navbar > nav { transform: translateX(24px) !important; }
+    .navbar > .contact-btn { transform: translateX(24px); }
+}
+
+@media (min-width: 992px) and (max-width: 1199px) {
+    .navbar > nav { transform: translateX(12px) !important; }
+    .navbar > .contact-btn { transform: translateX(12px); }
+}
+
+/* Home profile badge: use a legal scales icon instead of the years counter. */
+.about-badge {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+.about-badge > i {
+    font-size: 28px !important;
+    line-height: 1 !important;
+}
+
+
+/* =========================================================
+   FINAL HEADER ALIGNMENT FIX
+   Keeps brand and navigation separated on desktop/laptop.
+========================================================= */
+@media (min-width: 992px) {
+    header .navbar {
+        display: flex !important;
+        align-items: center !important;
+        justify-content: space-between !important;
+        gap: 24px !important;
+        overflow: visible !important;
+    }
+
+    header .navbar > .logo {
+        flex: 0 1 300px !important;
+        width: auto !important;
+        min-width: 220px !important;
+        max-width: 300px !important;
+        margin: 0 !important;
+        transform: none !important;
+    }
+
+    header .navbar > nav {
+        flex: 1 1 auto !important;
+        min-width: 0 !important;
+        margin-left: 0 !important;
+        transform: none !important;
+        overflow: visible !important;
+    }
+
+    header .navbar > nav .nav-links {
+        width: 100% !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: flex-end !important;
+        gap: 24px !important;
+        margin: 0 !important;
+    }
+
+    header .navbar > nav .nav-links > li {
+        flex: 0 0 auto !important;
+    }
+
+    header .navbar > nav .nav-links > li > a {
+        display: inline-flex !important;
+        align-items: center !important;
+        gap: 7px !important;
+        white-space: nowrap !important;
+    }
+}
+
+/* Laptop widths: give the brand and menu enough breathing room. */
+@media (min-width: 992px) and (max-width: 1300px) {
+    header .navbar {
+        gap: 16px !important;
+    }
+
+    header .navbar > .logo {
+        flex-basis: 215px !important;
+        min-width: 200px !important;
+        max-width: 215px !important;
+    }
+
+    header .navbar > nav .nav-links {
+        gap: 14px !important;
+    }
+
+    header .navbar > nav .nav-links > li > a {
+        font-size: 15px !important;
+        padding-left: 2px !important;
+        padding-right: 2px !important;
+    }
+}
+
+/* Never allow the desktop navigation to collide with the brand. */
+@media (min-width: 992px) and (max-width: 1120px) {
+    header .navbar > .logo {
+        flex-basis: 185px !important;
+        min-width: 175px !important;
+        max-width: 185px !important;
+    }
+
+    header .navbar > nav .nav-links {
+        gap: 9px !important;
+    }
+
+    header .navbar > nav .nav-links > li > a {
+        font-size: 14px !important;
+    }
+}
+
+
+/* =========================================================
+   MOBILE NAVIGATION HARDENING
+   Fixes touch scrolling and Back/Forward cache behaviour.
+========================================================= */
+@media (max-width: 991px) {
+    html, body {
+        max-width: 100%;
+        overflow-x: hidden !important;
+    }
+
+    body.mobile-menu-open {
+        overflow: hidden !important;
+        touch-action: none;
+    }
+
+    .nav-links {
+        touch-action: pan-y;
+        overscroll-behavior: contain;
+    }
+
+    .nav-links .has-dropdown > .dropdown-toggle {
+        cursor: pointer;
+        -webkit-tap-highlight-color: transparent;
+        touch-action: manipulation;
+    }
+
+    .nav-links .dropdown-menu {
+        max-height: min(45dvh, 360px) !important;
+        overflow-y: auto !important;
+        overflow-x: hidden !important;
+        overscroll-behavior-y: contain;
+        -webkit-overflow-scrolling: touch;
+        touch-action: pan-y;
+    }
+
+    .nav-links .dropdown-menu li a {
+        min-height: 44px;
+        display: flex !important;
+        align-items: center;
+        justify-content: center;
+        touch-action: manipulation;
+    }
+}
+
+@media (max-width: 576px) {
+    .nav-links {
+        padding-top: 78px !important;
+        padding-bottom: 24px !important;
+    }
+
+    .nav-links .dropdown-menu {
+        max-height: 42dvh !important;
+    }
+
+    .nav-links > li > a {
+        min-height: 46px;
+    }
+}

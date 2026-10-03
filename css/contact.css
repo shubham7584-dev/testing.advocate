@@ -1,0 +1,48 @@
+.contact-hero{padding:110px 20px 80px;background:linear-gradient(135deg,#111827,#24364b);color:#fff;text-align:center}.contact-hero h1{font-size:clamp(38px,5vw,64px);margin:8px 0 14px}.contact-hero p:last-child{max-width:700px;margin:auto;opacity:.88;line-height:1.8}.eyebrow{text-transform:uppercase;letter-spacing:2px;font-size:13px;font-weight:700;margin:0 0 10px}.contact-section{background:#f7f8fa}.contact-grid{display:grid;grid-template-columns:1.45fr .75fr;gap:30px;align-items:start}.contact-form-card,.contact-info-card,.office-card{background:#fff;border:1px solid #e8ebef;box-shadow:0 12px 35px rgba(0,0,0,.06);border-radius:12px}.contact-form-card{padding:38px}.contact-info-card{padding:34px}.section-heading.left{text-align:left}.section-heading h2{margin:0 0 12px}.section-heading p:not(.eyebrow){line-height:1.75;color:#667085}.contact-form{margin-top:25px}.form-row{display:grid;grid-template-columns:1fr 1fr;gap:18px}.form-group{margin-bottom:18px}.form-group label{display:block;font-weight:600;margin-bottom:8px}.form-group input,.form-group textarea{width:100%;border:1px solid #d9dee7;border-radius:7px;padding:13px 14px;font:inherit;box-sizing:border-box;outline:none}.form-group input:focus,.form-group textarea:focus{border-color:#9a7b3f}.primary-btn{border:0;padding:14px 25px;border-radius:6px;background:#9a7b3f;color:#fff;font-weight:700;cursor:pointer}.form-message{margin:12px 0 0;color:#54745b}.info-item{display:flex;gap:15px;padding:20px 0;border-bottom:1px solid #eceff2}.info-item:last-child{border-bottom:0}.info-icon{width:40px;height:40px;display:grid;place-items:center;border-radius:50%;background:#f3eee5;color:#8b6b31;flex:none}.info-item strong,.info-item a,.info-item span{display:block;line-height:1.7}.info-item a{color:inherit;text-decoration:none}.offices-section{background:#fff}.office-grid{display:grid;grid-template-columns:1fr 1fr;gap:25px;margin-top:30px}.office-card{padding:32px;position:relative}.office-number{font-size:13px;font-weight:800;color:#9a7b3f;letter-spacing:1px}.office-card h3{margin:10px 0}.address-placeholder{color:#8a93a0;margin:0}.map-section{padding:75px 20px;background:#f7f8fa}.map-wrap{height:430px;border-radius:12px;overflow:hidden;box-shadow:0 10px 30px rgba(0,0,0,.08);margin-top:28px}.map-wrap iframe{width:100%;height:100%;border:0}.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:35px;padding:55px 20px}.footer-grid p{line-height:1.7}.footer-bottom{padding:18px 20px;border-top:1px solid #ddd}.whatsapp-btn{position:fixed;right:20px;bottom:80px;background:#1fa463;color:#fff;padding:12px 16px;border-radius:30px;text-decoration:none;font-size:14px;font-weight:700;z-index:20}.scroll-top{position:fixed;right:20px;bottom:25px;border:0;border-radius:50%;width:42px;height:42px;cursor:pointer;display:none}.scroll-top.show{display:block}@media(max-width:850px){.contact-grid{grid-template-columns:1fr}.office-grid,.footer-grid{grid-template-columns:1fr}}@media(max-width:600px){.contact-form-card,.contact-info-card{padding:24px}.form-row{grid-template-columns:1fr}.contact-hero{padding:80px 20px 60px}.map-wrap{height:320px}}
+
+/* Contact details alignment fix */
+.contact-info-card .info-item {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    min-height: 68px;
+    box-sizing: border-box;
+}
+.contact-info-card .info-icon {
+    width: 42px;
+    min-width: 42px;
+    height: 42px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 42px;
+    font-size: 18px;
+    line-height: 1;
+}
+.contact-info-card .info-icon i {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 18px;
+    height: 18px;
+    font-size: 18px;
+    line-height: 1;
+}
+.contact-info-card .info-content {
+    flex: 1 1 auto;
+    min-width: 0;
+}
+.contact-info-card .info-content strong {
+    margin: 0 0 2px;
+    line-height: 1.3;
+}
+.contact-info-card .info-content a,
+.contact-info-card .info-content span {
+    margin: 0;
+    line-height: 1.5;
+    overflow-wrap: anywhere;
+}
+@media (max-width: 600px) {
+    .contact-info-card .info-item { min-height: 62px; gap: 12px; }
+    .contact-info-card .info-icon { width: 40px; min-width: 40px; height: 40px; flex-basis: 40px; }
+}
