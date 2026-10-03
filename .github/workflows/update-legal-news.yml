@@ -1,4 +1,4 @@
-name: Update legal news
+name: Update legal news and sitemap
 
 on:
   workflow_dispatch:
@@ -14,20 +14,26 @@ jobs:
     steps:
       - name: Check out repository
         uses: actions/checkout@v4
+
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: "3.x"
+
+      - name: Refresh sitemap and robots.txt
+        run: python scripts/generate_sitemap.py
+
       - name: Fetch latest legal-news headlines
         run: python scripts/fetch_legal_news.py
-      - name: Commit updated news feed
+
+      - name: Commit generated SEO/news files
         run: |
-          if git diff --quiet -- data/news.json; then
-            echo "No legal-news changes to commit."
+          if git diff --quiet -- data/news.json sitemap.xml robots.txt; then
+            echo "No generated-file changes to commit."
             exit 0
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/news.json
-          git commit -m "chore: update legal news feed"
+          git add data/news.json sitemap.xml robots.txt
+          git commit -m "chore: refresh legal news and sitemap"
           git push

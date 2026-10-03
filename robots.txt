@@ -1,2 +1,4 @@
 User-agent: *
 Allow: /
+
+Sitemap: https://shubham7584-dev.github.io/testing.advocate/sitemap.xml

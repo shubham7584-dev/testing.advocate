@@ -192,7 +192,42 @@
       }
 
       if (isListing && Array.isArray(newsItems)) {
-        for (const item of newsItems) {
+        const newsFallbackImages = [
+          ['supreme court', 'images/blogs/supreme-court-lawyer.jpg'],
+          ['high court', 'images/blogs/civil-law.jpg'],
+          ['property', 'images/blogs/property-law.jpg'],
+          ['real estate', 'images/blogs/property-law.jpg'],
+          ['divorce', 'images/blogs/divorce-law.jpg'],
+          ['family', 'images/blogs/family-law.jpg'],
+          ['child', 'images/blogs/child-custody.jpg'],
+          ['criminal', 'images/blogs/criminal-law.jpg'],
+          ['bail', 'images/blogs/bail-law.jpg'],
+          ['corporate', 'images/blogs/corporate-law.jpg'],
+          ['company', 'images/blogs/corporate-law.jpg'],
+          ['consumer', 'images/blogs/consumer-law.jpg'],
+          ['cheque', 'images/blogs/cheque-bounce-law.jpg'],
+          ['medical', 'images/blogs/medical-negligence.jpg'],
+          ['civil', 'images/blogs/civil-law.jpg'],
+          ['legal', 'images/blogs/legal-services.jpg']
+        ];
+        const fallbackPool = [
+          'images/blogs/civil-law.jpg',
+          'images/blogs/legal-services.jpg',
+          'images/blogs/corporate-law.jpg',
+          'images/blogs/criminal-law.jpg',
+          'images/blogs/property-law.jpg',
+          'images/blogs/family-law.jpg',
+          'images/blogs/consumer-law.jpg',
+          'images/blogs/court-marriage-law.jpg',
+          'images/blogs/medical-negligence.jpg'
+        ];
+        const pickNewsImage = (item, index) => {
+          if (typeof item.image === 'string' && item.image.trim()) return item.image.trim();
+          const haystack = `${item.title || ''} ${item.source || ''}`.toLocaleLowerCase();
+          const match = newsFallbackImages.find(([keyword]) => haystack.includes(keyword));
+          return match ? match[1] : fallbackPool[index % fallbackPool.length];
+        };
+        for (const [index, item] of newsItems.entries()) {
           if (!item || !item.title || typeof item.url !== 'string' || !item.url.startsWith('https://') || seen.has(item.url)) continue;
           seen.add(item.url);
           unique.push({
@@ -200,8 +235,8 @@
             url: item.url,
             category: 'Legal News',
             date: item.date || (item.publishedAt || '').slice(0, 10),
-            image: 'images/blogs/supreme-court-lawyer.jpg',
-            imageAlt: 'Legal news and court developments',
+            image: pickNewsImage(item, index),
+            imageAlt: item.imageAlt || 'Legal news and court developments',
             description: `Latest legal development reported by ${item.source || 'the original publisher'}. Open the source report for full details.`,
             source: item.source || 'Original source',
             publishedAt: item.publishedAt || item.date || '',
